@@ -4,4 +4,11 @@ export default {
   footer: { text: '© 2026 김시원' },
   primaryHue: 152,
   primarySaturation: 40,
+
+  head: (
+    <>
+      <meta name="robots" content="noindex, nofollow" />
+      <meta name="googlebot" content="noindex, nofollow" />
+    </>
+  ),
 }
