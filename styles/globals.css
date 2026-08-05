@@ -1,11 +1,231 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
 :root {
   --bg: #FAF8F3;
+  --bg-soft: #F3F0E8;
+  --card: #FFFFFF;
   --text: #232320;
+  --text-muted: #6B6A63;
   --accent: #2F6E4E;
   --accent-hover: #24573E;
+  --accent-soft: #E8F0EA;
   --secondary: #F0B93D;
+  --secondary-soft: #FBF0D6;
   --border: #E7E2D6;
+  --shadow: 0 2px 10px rgba(35, 35, 32, 0.05);
+  --shadow-md: 0 8px 24px rgba(35, 35, 32, 0.08);
 }
 
-body { background: var(--bg); color: var(--text); }
-a { color: var(--accent); }
+* {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif !important;
+}
+
+/* ---------- 기본 레이아웃 ---------- */
+
+html, body {
+  background: var(--bg) !important;
+  color: var(--text);
+}
+
+.nextra-nav-container-blur {
+  background-color: rgba(250, 248, 243, 0.9) !important;
+  border-bottom: 1px solid var(--border);
+}
+
+.nextra-sidebar-container {
+  background: var(--bg) !important;
+  border-right: 1px solid var(--border);
+}
+
+.nextra-sidebar-container a {
+  border-radius: 8px !important;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nextra-toc {
+  background: transparent !important;
+}
+
+footer {
+  background: var(--bg-soft) !important;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted) !important;
+}
+
+/* ---------- 본문 타이포그래피 ---------- */
+
+.nextra-content {
+  color: var(--text) !important;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.nextra-content h1 {
+  font-size: 2.25rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  color: var(--text) !important;
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.nextra-content h2 {
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  color: var(--text) !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  padding-left: 0.9rem;
+  border-left: 4px solid var(--accent);
+  border-bottom: none !important;
+}
+
+.nextra-content h3 {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: var(--accent-hover) !important;
+  margin-top: 1.75rem !important;
+}
+
+.nextra-content p {
+  line-height: 1.85 !important;
+  color: var(--text) !important;
+  font-size: 1rem;
+}
+
+.nextra-content strong {
+  color: var(--accent-hover);
+  font-weight: 700;
+}
+
+.nextra-content ul,
+.nextra-content ol {
+  margin: 1rem 0 !important;
+}
+
+.nextra-content ul li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+.nextra-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.nextra-content a {
+  color: var(--accent) !important;
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.nextra-content a:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* ---------- 표: 카드형으로 ---------- */
+
+.nextra-content table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  margin: 1.5rem 0 !important;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.nextra-content thead {
+  background: var(--accent-soft) !important;
+}
+
+.nextra-content th {
+  color: var(--accent-hover) !important;
+  font-weight: 700 !important;
+  text-align: left;
+  padding: 0.75rem 1rem !important;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.nextra-content td {
+  padding: 0.75rem 1rem !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-top: none !important;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+
+.nextra-content tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.nextra-content tbody tr:hover {
+  background: var(--bg-soft);
+}
+
+/* ---------- 인용구: 카드형 콜아웃 ---------- */
+
+.nextra-content blockquote {
+  background: var(--secondary-soft) !important;
+  border-left: 4px solid var(--secondary) !important;
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.2rem !important;
+  margin: 1.5rem 0 !important;
+  color: var(--text) !important;
+  font-size: 0.95rem;
+}
+
+.nextra-content blockquote p {
+  margin: 0 !important;
+  line-height: 1.7 !important;
+}
+
+/* ---------- 인라인 코드 ---------- */
+
+.nextra-content :not(pre) > code {
+  background: var(--bg-soft) !important;
+  color: var(--accent-hover) !important;
+  border-radius: 6px;
+  padding: 0.15em 0.45em !important;
+  font-size: 0.88em;
+  font-weight: 600;
+}
+
+.nextra-content pre {
+  border-radius: 12px !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- 구분선 ---------- */
+
+.nextra-content hr {
+  border-color: var(--border) !important;
+  margin: 2.5rem 0 !important;
+}
+
+/* ---------- 선택 영역 & 스크롤바 ---------- */
+
+::selection {
+  background: var(--secondary-soft);
+  color: var(--accent-hover);
+}
+
+.nextra-scrollbar {
+  scrollbar-color: var(--accent) transparent !important;
+}
+
+.nextra-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(47, 110, 78, 0.35) !important;
+}
