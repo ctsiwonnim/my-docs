@@ -1,0 +1,11 @@
+:root {
+  --bg: #FAF8F3;
+  --text: #232320;
+  --accent: #2F6E4E;
+  --accent-hover: #24573E;
+  --secondary: #F0B93D;
+  --border: #E7E2D6;
+}
+
+body { background: var(--bg); color: var(--text); }
+a { color: var(--accent); }
