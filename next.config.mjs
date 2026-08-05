@@ -5,4 +5,15 @@ const withNextra = nextra({
   themeConfig: './theme.config.jsx'
 })
 
-export default withNextra()
+export default withNextra({
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow' }
+        ]
+      }
+    ]
+  }
+})
