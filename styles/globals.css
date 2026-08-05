@@ -1,8 +1,8 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 
 :root {
-  --bg: #FAF8F3;
-  --bg-soft: #F3F0E8;
+  --bg: #fffefa;
+  --bg-soft: #faf9f5;
   --card: #FFFFFF;
   --text: #232320;
   --text-muted: #6B6A63;
