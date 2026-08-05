@@ -1,0 +1,36 @@
+# 해양생물 구조 알리미
+
+**형태** 토이 프로젝트 · **기간** 2024.10 ~ 2024.11 · **기여도** 100%
+
+## 개요
+
+해양생물 구조 요청이 주로 전화로만 이루어져 정확한 위치 파악이 어렵다는 문제를 해결하기 위해, 사진 업로드로 위치를 확인할 수 있는 구조 요청 웹사이트를 개발했습니다. 허위 신고 방지를 위한 사진 검증, 참여 독려를 위한 포인트 적립 시스템도 함께 구현했습니다.
+
+## 담당 역할
+
+- 프로젝트 기획, 엔티티 관계도/다이어그램 작성
+- 기능 및 화면 구현, 데이터 전처리
+
+## 개발 내용
+
+- Spring Security 기반 회원 인증 및 회원유형별 권한 구분
+- 구조 요청 게시글 CRUD, 구조완료 처리 시 GeoLocation API로 좌표·포인트 지급
+- 개방해 API 기반 지도 시각화, 카테고리별 마커 On/Off, GeoServer 격자 레이어
+- 서울시 버스 API를 활용한 구조 생물 이동 애니메이션(1초 단위 좌표 파싱)
+- Apache POI로 해양보호종 안내글 엑셀 다운로드 기능 구현
+
+## 기술 스택
+
+- Frontend: HTML, CSS, JavaScript, jQuery
+- Backend: Spring, Spring Security, Java, PostgreSQL, MyBatis
+- API: GeoServer, OpenLayers3, Apache POI, 개방해 API, GeoLocation API, 서울시 버스 위치 조회 API, 다음 주소 API
+
+## 트러블슈팅
+
+**CSRF 403 에러**: AJAX POST 요청 시 Spring Security의 기본 CSRF 보호로 인해 403 에러가 발생해, `beforeSend` 옵션으로 CSRF 값을 헤더에 설정해 해결했습니다.
+
+**CORS 문제**: 버스 실시간 위치 API 호출 시 동일 출처 정책으로 데이터를 받을 수 없어, `CorsConfigurationSource` 빈을 등록하고 허용 도메인을 설정해 해결했습니다.
+
+## 아쉬운 점
+
+스프링 보안 설정을 처음 접하며 해결에 많은 시간이 소요되었고, CORS·보안 정책에 대한 심화 학습과 문서화 필요성을 느꼈습니다.
